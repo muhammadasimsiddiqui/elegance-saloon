@@ -22,3 +22,12 @@ Route::get('/appointment', function () {
 Route::get('/contact', function () {
     return view('frontend.contact');
 })->name('contact');
+
+// Backend Routes
+Route::get('/admin', function () {
+    return view('backend.home');
+})->name('home');
+
+Route::get('/contact', function () {
+    return view('frontend.contact');
+})->name('contact');
