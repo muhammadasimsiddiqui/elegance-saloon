@@ -14,26 +14,26 @@
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="index.html" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                    <a href="{{ url('/dashboard') }}" class="nav-item nav-link {{ Route::currentRouteName() == 'dashboard' ? 'active' : '' }}"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Elements</a>
                         <div class="dropdown-menu bg-transparent border-0">
-                            <a href="button.html" class="dropdown-item">Buttons</a>
-                            <a href="typography.html" class="dropdown-item">Typography</a>
-                            <a href="element.html" class="dropdown-item">Other Elements</a>
+                            <a href="{{ url('/button') }}" class="dropdown-item {{ Route::currentRouteName() == 'button' ? 'active' : '' }}">Buttons</a>
+                            <a href="{{ url('/typography') }}" class="dropdown-item {{ Route::currentRouteName() == 'typography' ? 'active' : '' }}">Typography</a>
+                            <a href="{{ url('/element') }}" class="dropdown-item {{ Route::currentRouteName() == 'element' ? 'active' : '' }}">Other Elements</a>
                         </div>
                     </div>
-                    <a href="widget.html" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Widgets</a>
-                    <a href="form.html" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Forms</a>
-                    <a href="table.html" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Tables</a>
-                    <a href="chart.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Charts</a>
+                    <a href="{{ url('/widget') }}" class="nav-item nav-link {{ Route::currentRouteName() == 'widget' ? 'active' : '' }}"><i class="fa fa-th me-2"></i>Widgets</a>
+                    <a href="{{ url('/form') }}" class="nav-item nav-link {{ Route::currentRouteName() == 'form' ? 'active' : '' }}"><i class="fa fa-keyboard me-2"></i>Forms</a>
+                    <a href="{{ url('/table') }}" class="nav-item nav-link {{ Route::currentRouteName() == 'table' ? 'active' : '' }}"><i class="fa fa-table me-2"></i>Tables</a>
+                    <a href="{{ url('/chart') }}" class="nav-item nav-link {{ Route::currentRouteName() == 'chart' ? 'active' : '' }}"><i class="fa fa-chart-bar me-2"></i>Charts</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Pages</a>
                         <div class="dropdown-menu bg-transparent border-0">
-                            <a href="signin.html" class="dropdown-item">Sign In</a>
-                            <a href="signup.html" class="dropdown-item">Sign Up</a>
-                            <a href="404.html" class="dropdown-item">404 Error</a>
-                            <a href="blank.html" class="dropdown-item">Blank Page</a>
+                            <a href="{{ url('/signin') }}" class="dropdown-item {{ Route::currentRouteName() == 'signin' ? 'active' : '' }}">Sign In</a>
+                            <a href="{{ url('/signup') }}" class="dropdown-item {{ Route::currentRouteName() == 'signup' ? 'active' : '' }}">Sign Up</a>
+                            <a href="{{ url('/404') }}" class="dropdown-item {{ Route::currentRouteName() == '404' ? 'active' : '' }}">404 Error</a>
+                            <a href="{{ url('/blank') }}" class="dropdown-item {{ Route::currentRouteName() == 'blank' ? 'active' : '' }}">Blank Page</a>
                         </div>
                     </div>
                 </div>

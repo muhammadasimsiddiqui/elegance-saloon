@@ -32,6 +32,7 @@
 </head>
 
 <body>
+
     <div class="container-fluid position-relative d-flex p-0">
         <!-- Spinner Start -->
         <div id="spinner" class="show bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
@@ -41,30 +42,36 @@
         </div>
         <!-- Spinner End -->
 
+        @if(in_array(Route::currentRouteName(), ['signin', 'signup']))
+        
+            @yield('dashboardcontent')
 
-        <!-- Sidebar Start -->
-        @include('backend.partials.sidebar')
-        <!-- Sidebar End -->
+        @else
+            <!-- Sidebar Start -->
+            @include('backend.partials.sidebar')
+            <!-- Sidebar End -->
 
+            <!-- Content Start -->
+            <div class="content">
+                <!-- Navbar Start -->
+                @include('backend.partials.navbar')
+                <!-- Navbar End -->
 
-        <!-- Content Start -->
-        <div class="content">
-            <!-- Navbar Start -->
-            @include('backend.partials.navbar')
-            <!-- Navbar End -->
+                @yield('dashboardcontent')
 
-            @yield('dashboard-content')
+                <!-- Footer Start -->
+                @include('backend.partials.footer')
+                <!-- Footer End -->
+            </div>
+            <!-- Content End -->
 
-            <!-- Footer Start -->
-            @include('backend.partials.footer')
-            <!-- Footer End -->
-        </div>
-        <!-- Content End -->
+            <!-- Back to Top -->
+            <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+            <!-- Back to Top End -->
+        @endif
 
-
-        <!-- Back to Top -->
-        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
+
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
