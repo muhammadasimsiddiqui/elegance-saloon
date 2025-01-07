@@ -18,4 +18,4 @@
             <!-- Blank End -->
 
 
-            @endsection
+@endsection

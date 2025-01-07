@@ -65,6 +65,11 @@ class AdminController extends Controller
         {
             return view('backend.widget');
         }
+
+        public function adduser()
+        {
+            return view('backend.adduser');
+        }
     
     
 }
