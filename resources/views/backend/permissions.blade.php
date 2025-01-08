@@ -3,7 +3,7 @@
 
 @extends('backend.layouts.app')
 
-@section('title', content: 'Orders')
+@section('title', content: 'Account Permissions')
 
 @push('styles')
 @endpush
