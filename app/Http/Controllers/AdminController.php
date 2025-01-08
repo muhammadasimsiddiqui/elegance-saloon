@@ -66,15 +66,46 @@ class AdminController extends Controller
             return view('backend.widget');
         }
 
+        public function inquiries()
+        {
+            return view('backend.inquiries');
+        }
+
+        public function orders()
+        {
+            return view('backend.orders');
+        }
+
+        public function reports()
+        {
+            return view('backend.reports');
+        }
+
         public function accounts()
         {
             return view('backend.accounts');
         }
-    
-        public function adduser()
+
+        public function permissions()
         {
-            return view('backend.adduser');
+            return view('backend.permissions');
         }
     
+        public function createaccount()
+        {
+            return view('backend.create-account');
+        }
+
+        public function systemConfiguration()
+        {
+            return view('backend.system-configuration');
+        }
+    
+        public function dataBackupRestore()
+        {
+            return view('backend.data-backup-restore');
+        }
+    
+ 
     
 }

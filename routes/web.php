@@ -92,5 +92,7 @@ Route::get('/signup', [AdminController::class, 'signup'])->name('signup');
 Route::get('/table', [AdminController::class, 'table'])->name('table');
 Route::get('/typography', [AdminController::class, 'typography'])->name('typography');
 Route::get('/widget', [AdminController::class, 'widget'])->name('widget');
+Route::get('/inquiries', [AdminController::class, 'inquiries'])->name('inquiries');
+Route::get('/orders', [AdminController::class, 'inquiries'])->name('orders');
 Route::get('/accounts', [AdminController::class, 'accounts'])->name('accounts');
-Route::get('/add-user', [AdminController::class, 'adduser'])->name('add-user');
+Route::get('/create-account', [AdminController::class, 'createaccount'])->name('create-account');
