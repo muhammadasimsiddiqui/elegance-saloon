@@ -36,6 +36,8 @@
                             <a href="{{ url('/blank') }}" class="dropdown-item {{ Route::currentRouteName() == 'blank' ? 'active' : '' }}">Blank Page</a>
                         </div>
                     </div>
+                    <a href="{{ url('/accounts') }}" class="nav-item nav-link {{ Route::currentRouteName() == 'accounts' ? 'active' : '' }}"><i class="fa fa-id-card me-2"></i>Accounts</a>
+                    <a href="{{ url('/add-user') }}" class="nav-item nav-link {{ Route::currentRouteName() == 'add-user' ? 'active' : '' }}"><i class="fa fa-user me-2"></i>Add User</a>
                 </div>
             </nav>
         </div>

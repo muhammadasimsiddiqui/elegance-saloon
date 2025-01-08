@@ -29,6 +29,12 @@
 
     <!-- Template Stylesheet -->
     <link href="backend/css/style.css" rel="stylesheet">
+
+    <!-- FilePond CSS -->
+    <link href="https://unpkg.com/filepond/dist/filepond.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css" rel="stylesheet">
+      
+    @stack('styles')
 </head>
 
 <body>
@@ -86,6 +92,21 @@
 
     <!-- Template Javascript -->
     <script src="backend/js/main.js"></script>
+
+ 
+<!-- FilePond JS -->
+<script src="https://unpkg.com/filepond/dist/filepond.min.js"></script>
+<script src="https://unpkg.com/filepond-plugin-file-encode/dist/filepond-plugin-file-encode.min.js"></script>
+<script src="https://unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.min.js"></script>
+<script src="https://unpkg.com/filepond-plugin-image-exif-orientation/dist/filepond-plugin-image-exif-orientation.min.js"></script>
+<script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.js"></script>
+<script src="https://unpkg.com/filepond-plugin-image-crop/dist/filepond-plugin-image-crop.min.js"></script>
+<script src="https://unpkg.com/filepond-plugin-image-resize/dist/filepond-plugin-image-resize.min.js"></script>
+<script src="https://unpkg.com/filepond-plugin-image-transform/dist/filepond-plugin-image-transform.min.js"></script>
+<script src="https://unpkg.com/filepond-plugin-image-edit/dist/filepond-plugin-image-edit.min.js"></script>
+
+    @stack('scripts')
+
 </body>
 
 </html>
