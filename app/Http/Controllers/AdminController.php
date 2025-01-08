@@ -105,7 +105,4 @@ class AdminController extends Controller
         {
             return view('backend.data-backup-restore');
         }
-    
- 
-    
 }
