@@ -267,13 +267,13 @@ class AdminController extends Controller
         $inquiries = Inquire::all();
 
         // Pass the inquiries to the view
-        return view('backend.inquiries', compact('inquiries'));
+        return view('backend.crudPartials.inquiries.inquiries', compact('inquiries'));
     }
 
     public function editInquiries($id)
     {
         $inquiry = Inquire::findOrFail($id);
-        return view('backend.crudPartials.editInquiries', compact('inquiry'));
+        return view('backend.crudPartials.inquiries.editInquiries', compact('inquiry'));
     }
 
     public function updateInquiries(Request $req, $id)
@@ -303,7 +303,7 @@ class AdminController extends Controller
     $inquiry = Inquire::findOrFail($id);
 
     // Return the single inquiry details view
-    return view('backend.crudPartials.showInquiries', compact('inquiry'));
+    return view('backend.crudPartials.inquiries.showInquiries', compact('inquiry'));
 }
 
 
@@ -318,7 +318,6 @@ public function storeService(Request $req)
     }
 
  $ser = new Service();
-       
         $ser->name = $req->name;
         $ser->description = $req->desc;
         $ser->price = $req->price;
@@ -326,8 +325,23 @@ public function storeService(Request $req)
         $ser->image_urls = $req->imageName;
         $ser->save();
     
-    // Redirect to the home page after saving the inquiry
     return redirect('/view-services');   
+}
+public function deleteService($id)
+{
+    // Find the service by its ID
+    $service = Service::findOrFail($id);
+
+    // Optionally, you can delete any associated files (if any)
+    if ($service->image && File::exists(public_path('storage/' . $service->image))) {
+        File::delete(public_path('storage/' . $service->image));
+    }
+
+    // Delete the service record
+    $service->delete();
+
+    // Redirect back to the services list with a success message
+    return redirect('/view-services'); 
 }
 
 }

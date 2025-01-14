@@ -3,7 +3,21 @@
 @section('title', 'Services')
 
 @push('styles')
-<!-- Add any necessary CSS files here -->
+<style>
+    .description-column {
+    max-width: 200px;  /* Default width */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@media (max-width: 768px) {
+    .description-column {
+        max-width: 150px;  /* Smaller width for mobile screens */
+    }
+}
+
+</style>
 @endpush
 
 @section('dashboardcontent')
@@ -35,7 +49,7 @@
                                 <th scope="row" class="align-content-center">{{ $loop->iteration }}</th>
                                 <td class="align-content-center"></td>
                                 <td class="align-content-center">{{ $service->name }}</td>
-                                <td class="align-content-center">{{ $service->description }}</td>
+                                <td class="align-content-center  description-column">{{ $service->description }}</td>
                                 <td class="align-content-center">{{ $service->price }}</td>
                                 <td class="align-content-center">{{ $service->duration }}</td>
                                 <td class="text-center align-content-center">
@@ -44,10 +58,11 @@
     <a href="" class="btn btn-info btn-sm">View</a>
                                    <a href="{{ route('edit.service', $service->id) }}" class="btn btn-warning btn-sm">Edit</a>
                                         <form action="{{ route('delete.service', $service->id) }}" method="POST" style="display:inline;">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                                        </form>
+    @csrf
+    @method('DELETE')
+    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+</form>
+
                                 </td>
                             </tr>
                             @endforeach
