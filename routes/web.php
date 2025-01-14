@@ -84,3 +84,5 @@ Route::get('/admin/services/edit/{id}', [AdminController::class, 'editService'])
 
 // Delete service route
 Route::delete('/admin/services/delete/{id}', [AdminController::class, 'deleteService'])->name('delete.service');
+
+Route::post('/saveservices', [AdminController::class, 'storeService'])->name('services.store');

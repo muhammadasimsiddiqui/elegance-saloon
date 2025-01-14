@@ -306,4 +306,28 @@ class AdminController extends Controller
     return view('backend.crudPartials.showInquiries', compact('inquiry'));
 }
 
+
+// Services
+public function storeService(Request $req)
+{
+    // Handle file upload
+    $imageName = null;
+    if ($req->hasFile('serviceImg')) {
+        $imageName = time() . '.' . $req->serviceImg->extension();
+        $req->serviceImg->move(public_path('images/services'), $imageName);
+    }
+
+ $ser = new Service();
+       
+        $ser->name = $req->name;
+        $ser->description = $req->desc;
+        $ser->price = $req->price;
+        $ser->duration = $req->time;
+        $ser->image_urls = $req->imageName;
+        $ser->save();
+    
+    // Redirect to the home page after saving the inquiry
+    return redirect('/view-services');   
+}
+
 }

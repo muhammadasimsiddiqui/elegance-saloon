@@ -7,6 +7,9 @@
 @endpush
 
 @section('dashboardcontent')
+
+
+    
 <!-- Table Start -->
 <div class="container-fluid pt-4 px-4">
     <div class="row g-4">
@@ -56,6 +59,78 @@
     </div>
 </div>
 <!-- Table End -->
+
+<!-- Add Services Section Start -->
+    <div class="container-fluid pt-4 px-4">
+        <form action="{{ route('services.store') }}" method="post" enctype="multipart/form-data">
+            @csrf
+        <div class="row g-4">
+            <div class="col-12">
+                <div class="bg-secondary rounded h-100 p-4">
+                    <h6 class="mb-4">Add New Services</h6>
+
+                    <div class="row">
+                       
+
+                        <div class="col-md-12">
+                              <div class="row">
+                        
+                        <div class="col-12">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" placeholder="Name" id="name"
+                                    name="name" required>
+                                <label for="name">Name</label>
+                            </div>
+                        </div>
+                       
+                        <div class="col-sm-12 col-xl-6">
+                            <div class="form-floating mb-3">
+                                <input type="number" class="form-control" placeholder="price" id="price"
+                                    name="price" required>
+                                <label for="price">Price</label>
+                            </div>
+                        </div>
+                       
+                        <div class="col-sm-12 col-xl-6">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="time" 
+            name="time" 
+            placeholder="Enter working time (e.g., 30min, 1hr)" 
+            pattern="^([1-9][0-9]*\s?(min|hr|hours))$" 
+            required>
+                                <label for="time">Timing</label>
+                                  <small class="form-text text-muted">
+            Format: "30min", "1hr", "2 hours", etc.
+        </small>
+                            </div>
+                        </div>
+                       
+                        <div class="col-12">
+
+                            <div class="form-floating mb-3">
+                               <textarea class="form-control" placeholder="Description" id="description" name="desc" style="height: 150px;" required></textarea><label for="description" >Description</label>
+                            </div>
+                        </div>
+                         <div class="col-sm-12 col-xl-4">
+                            <!-- Profile Image -->
+                            <div class="text-start mb-3">
+                                <label for="serviceImg" class="form-label">Add Service Image</label>
+                                <input class="form-control form-control-sm bg-dark" id="serviceImg" type="file" name="serviceImg" accept="image/png, image/jpeg, image/gif" required >
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </form>
+    </div>
+    <!-- Add Services Section End -->
 @endsection
 
 @push('scripts')
