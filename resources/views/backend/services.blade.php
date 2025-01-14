@@ -55,8 +55,8 @@
                                 <td class="text-center align-content-center">
                
 
-    <a href="" class="btn btn-info btn-sm">View</a>
-                                   <a href="{{ route('edit.service', $service->id) }}" class="btn btn-warning btn-sm">Edit</a>
+<a href="{{ route('services.showServices', ['id' => $service->id]) }}" class="btn btn-info btn-sm">View</a>
+                                   <a href="{{ route('services.edit', $service->id) }}" class="btn btn-warning btn-sm">Edit</a>
                                         <form action="{{ route('delete.service', $service->id) }}" method="POST" style="display:inline;">
     @csrf
     @method('DELETE')
@@ -130,7 +130,7 @@
                             <!-- Profile Image -->
                             <div class="text-start mb-3">
                                 <label for="serviceImg" class="form-label">Add Service Image</label>
-                                <input class="form-control form-control-sm bg-dark" id="serviceImg" type="file" name="serviceImg" accept="image/png, image/jpeg, image/gif" required >
+                                <input class="form-control form-control-sm bg-dark" id="serviceImg" type="file" name="serviceImg" accept="image/png, image/jpg, image/jpeg, image/gif" required >
                             </div>
                         </div>
                         <div class="col-12">

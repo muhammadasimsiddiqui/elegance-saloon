@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->id();
-            $table->json('image_urls')->nullable(); 
+            $table->string('image_urls')->nullable(); 
             $table->string('name');
             $table->text('description')->nullable();
             $table->decimal('price', 10, 2);

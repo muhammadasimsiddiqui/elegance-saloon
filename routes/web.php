@@ -80,9 +80,16 @@ Route::delete('/inquiries/{id}', [AdminController::class, 'destroyInquiries'])->
 
 // Services
 // Edit service route
-Route::get('/admin/services/edit/{id}', [AdminController::class, 'editService'])->name('edit.service');
+
 
 // Delete service route
 Route::delete('/service/{id}', [AdminController::class, 'deleteService'])->name('delete.service');
 
 Route::post('/saveservices', [AdminController::class, 'storeService'])->name('services.store');
+
+// Route for displaying the edit form
+Route::get('/service/edit/{id}', [AdminController::class, 'editService'])->name('services.edit');
+
+// Route for updating the service
+Route::put('/service/{id}', [AdminController::class, 'updateService'])->name('services.update');
+Route::get('/services/{id}', [AdminController::class, 'showServices'])->name('services.showServices');

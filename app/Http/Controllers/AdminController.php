@@ -310,23 +310,23 @@ class AdminController extends Controller
 // Services
 public function storeService(Request $req)
 {
-    // Handle file upload
-    $imageName = null;
     if ($req->hasFile('serviceImg')) {
         $imageName = time() . '.' . $req->serviceImg->extension();
         $req->serviceImg->move(public_path('images/services'), $imageName);
+        $imageFullPath = 'images/services/' . $imageName; // Full URL to the image
     }
 
  $ser = new Service();
         $ser->name = $req->name;
-        $ser->description = $req->desc;
         $ser->price = $req->price;
         $ser->duration = $req->time;
-        $ser->image_urls = $req->imageName;
+        $ser->description = $req->desc;
+        $ser->image_urls = $imageFullPath;  // Store as JSON array
         $ser->save();
     
     return redirect('/view-services');   
 }
+
 public function deleteService($id)
 {
     // Find the service by its ID
@@ -343,5 +343,67 @@ public function deleteService($id)
     // Redirect back to the services list with a success message
     return redirect('/view-services'); 
 }
+
+public function editService($id)
+{
+    // Find the service by ID or fail with a 404 error
+    $service = Service::findOrFail($id);
+
+    // Return the edit view with the service data
+    return view('backend.crudPartials.services.editServices', compact('service'));
+}
+
+public function updateService(Request $req, $id)
+{
+   
+
+    // Find the service by its ID
+    $service = Service::findOrFail($id);
+
+    // Update the service details
+    $service->name = $req->name;
+    $service->price = $req->price;
+    $service->duration = $req->time;
+    $service->description = $req->desc;
+
+    // Handle the file upload if an image is provided
+    // Handle the file upload if an image is provided
+    if ($req->hasFile('serviceImg')) {
+        $imageName = time() . '.' . $req->serviceImg->extension();
+        $imageFullPath = 'images/services/' . $imageName; 
+        $req->serviceImg->move(public_path('images/services'), $imageName);
+        
+        // Delete the old image if exists
+        if ($service->image_urls) {
+            $oldImages = json_decode($service->image_urls, true);
+            if (is_array($oldImages)) {
+                foreach ($oldImages as $oldImage) {
+                    File::delete(public_path('images/services/' . $oldImage));
+                }
+            } else {
+                File::delete(public_path('images/services/' . $service->image_urls));
+            }
+        }
+
+
+        // Store the new image URL in a JSON format (even if it's just one image)
+        ;  // Store the image name inside an array
+        $service->image_urls = $imageFullPath;  // Ensure the value is a valid JSON
+    }
+
+    // Save the updated service
+    $service->save();
+
+    // Redirect to the service list page with success message
+    return redirect('/view-services'); 
+}
+
+  public function showServices($id)
+{
+    $service = Service::findOrFail($id);
+    return view('backend.crudPartials.services.showServices', compact('service'));
+}
+
+
 
 }
