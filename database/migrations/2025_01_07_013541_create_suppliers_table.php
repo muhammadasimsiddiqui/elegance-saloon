@@ -22,8 +22,7 @@ return new class extends Migration {
             $table->string('company_phone_number', 50)->nullable();  
             $table->text('company_address')->nullable(); 
             $table->timestamps();
-            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP')); 
-            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP'))->onUpdate(DB::raw('CURRENT_TIMESTAMP'));
+          
         });
     }
 

@@ -59,3 +59,8 @@ Route::get('/delete/{id}', [AdminController::class, 'destroy'])->name('user.dest
 Route::post('/delete/{id}', [AdminController::class, 'destroy'])->name('user.destroy');
 
 
+
+// Contact Form Save Data
+Route::post('/contact', [AdminController::class, 'storeContact'])->name('contact.store');
+
+

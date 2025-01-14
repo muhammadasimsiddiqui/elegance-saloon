@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Models\User;
+use App\Models\User; 
+use App\Models\Inquire;  // Ensure this is correctly referring to the Inquire model
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
@@ -233,5 +233,21 @@ class AdminController extends Controller
 
         // Redirect to the accounts page with a success message
         return redirect()->route('accounts')->with('success', 'User profile deleted successfully.');
+    }
+
+    // Add this function to handle form submissions
+    public function storeContact(Request $req)
+    {
+       
+        $inq = new Inquire();
+       
+        $inq->name = $req->inqName;
+        $inq->email = $req->inqEmail;
+        $inq->subject = $req->inqSubject;
+        $inq->message = $req->inqMessage;
+        $inq->save();
+    
+    // Redirect to the home page after saving the inquiry
+    return redirect('/');
     }
 }

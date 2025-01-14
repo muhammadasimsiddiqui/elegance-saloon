@@ -41,32 +41,33 @@
                             <h3>NYC Branch</h3>
                             <p><i class="fa fa-map-marker"></i> 14 Marcury Road, NY, USA</p>
                             <p><i class="fa fa-phone"></i> (880) 777 4444</p>
-                            <p><i class="fa fa-envelope"></i> youremail@email.com</p>
-                            <p><i class="fa fa-globe"></i> http://yourdomain.com</p>
+                            <p><i class="fa fa-envelope"></i> info@elegancesaloon.com</p>
+                            <p><i class="fa fa-globe"></i> http://elegancesaloon.com</p>
                         </div>
                     </div> <!--/.col-->
                     <div class="col-md-8">
                         <!-- contact form start -->
-                        <form id="contact-form" action="" class="contact-form" data-toggle="validator" role="form" novalidate="true">
+                        <form id="contact-form" action="{{ route('contact.store') }}" method="POST" class="contact-form" data-toggle="validator" role="form" novalidate="true" >
+                            @csrf
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="name">Name<span>*</span></label>
-                                        <input type="text" class="form-control" id="name" required="" data-error="Enter your name">
+                                        <label for="inqName">Name<span>*</span></label>
+                                        <input type="text" class="form-control" id="inqName" required="" data-error="Enter your name" name="inqName">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div> <!-- /.col -->
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="email">Email<span>*</span></label>
-                                        <input type="email" class="form-control" id="email" required="" data-error="Enter valid email address">
+                                        <label for="inqEmail">Email<span>*</span></label>
+                                        <input type="email" class="form-control" id="inqEmail" required="" data-error="Enter valid email address" name="inqEmail">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div> <!-- /.col -->
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="subject">Subject</label>
-                                        <input type="text" class="form-control" id="msg_subject" data-error="Enter your message subject">
+                                        <label for="inqSubject">Subject</label>
+                                        <input type="text" class="form-control" id="inqSubject" data-error="Enter your message subject" name="inqSubject">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div> <!-- /.col -->
@@ -74,8 +75,8 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="message">Message</label>
-                                        <textarea id="message" class="form-control" rows="6" required="" data-error="Enter your message"></textarea>
+                                        <label for="inqMessage">Message</label>
+                                        <textarea id="inqMessage" class="form-control" rows="6" required="" data-error="Enter your message" name="inqMessage"></textarea>
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div> <!-- /.col -->
