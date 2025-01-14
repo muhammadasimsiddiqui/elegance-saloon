@@ -41,3 +41,21 @@ Route::get('/create-account', [AdminController::class, 'createaccount'])->name('
 // System Configuration & Backup Routes
 Route::get('/system-configuration', [AdminController::class, 'systemConfiguration'])->name('system-configuration');
 Route::get('/data-backup-restore', [AdminController::class, 'dataBackupRestore'])->name('data-backup-restore');
+
+
+// SAVE DATA
+Route::post('/registerUser',[AdminController::class,'userRegister']);
+
+// User Edit
+Route::get('/edit/{id}', [AdminController::class, 'edit'])->name('edit.user');
+Route::post('/update/{id}', [AdminController::class, 'update'])->name('update.user');
+
+// Route to view the profile of a specific user
+Route::get('/user/{id}', [AdminController::class, 'show'])->name('user.show');
+
+// Route to delete user profile
+Route::get('/delete/{id}', [AdminController::class, 'destroy'])->name('user.destroy');
+// Use POST for deleting a user to follow RESTful conventions
+Route::post('/delete/{id}', [AdminController::class, 'destroy'])->name('user.destroy');
+
+
