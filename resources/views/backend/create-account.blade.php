@@ -159,46 +159,5 @@
     </script>
     <!-- Initialize FilePond -->
 
-    <script>
-        FilePond.registerPlugin(
-            FilePondPluginImagePreview,
-            FilePondPluginImageCrop,
-            FilePondPluginImageResize,
-            FilePondPluginImageTransform,
-            FilePondPluginFileValidateType,
-            FilePondPluginImageExifOrientation,
-            FilePondPluginImageEdit
-        );
-
-        const inputElement = document.querySelector('input#image');
-        if (inputElement) {
-            FilePond.create(inputElement, {
-                labelIdle: `<span class="filepond--label-action">Upload Profile Picture</span>`,
-                imagePreviewHeight: 200,
-                imageCropAspectRatio: '1:1',
-                imageResizeTargetWidth: 200,
-                imageResizeTargetHeight: 200,
-                stylePanelLayout: 'compact circle',
-                styleLoadIndicatorPosition: 'center bottom',
-                styleProgressIndicatorPosition: 'right bottom',
-                styleButtonRemoveItemPosition: 'center bottom',
-                styleButtonProcessItemPosition: 'left bottom',
-                server: {
-                    process: {
-                        url: '/registerUser', // The URL where the file will be uploaded
-                        method: 'POST',
-                        onload: (response) => {
-                            // Handle success response
-                            console.log('File uploaded successfully');
-                        },
-                        onerror: (response) => {
-                            // Handle error
-                            console.log('Error uploading file');
-                        },
-                    },
-                    revert: '/revert', // URL to handle file revert (delete)
-                },
-            });
-        }
-    </script>
+   
 @endpush

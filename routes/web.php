@@ -64,3 +64,12 @@ Route::post('/delete/{id}', [AdminController::class, 'destroy'])->name('user.des
 Route::post('/contact', [AdminController::class, 'storeContact'])->name('contact.store');
 
 
+
+// Inquiries
+// Inquiries
+Route::get('/inquiries', [AdminController::class, 'showInquiries'])->name('backend.inquiries'); // List all inquiries
+Route::get('/inquiries/{id}', [AdminController::class, 'showSingleInquiry'])->name('inquiries.show'); // View single inquiry
+Route::get('/inquiries/{id}/edit', [AdminController::class, 'editInquiries'])->name('inquiries.edit'); // Edit inquiry
+Route::put('/inquiries/{id}', [AdminController::class, 'updateInquiries'])->name('inquiries.update'); // Update inquiry
+Route::delete('/inquiries/{id}', [AdminController::class, 'destroyInquiries'])->name('inquiries.destroy'); // Delete inquiry
+

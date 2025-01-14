@@ -8,5 +8,5 @@ class Inquire extends Model
 {
     use HasFactory;
 
-    protected $table = 'inquires';  // Make sure this matches your table name
+    protected $table = 'inquires'; 
 }

@@ -1,71 +1,59 @@
 @extends('backend.layouts.app')
 
-@section('title', content: 'Inquiries')
+@section('title', 'Inquiries')
 
 @push('styles')
 @endpush
 
 @section('dashboardcontent')
-    <!-- Table Start -->
-    <div class="container-fluid pt-4 px-4">
-        <div class="row g-4">
-            <div class="col-12">
-                <div class="bg-secondary rounded h-100 p-4">
-                    <h6 class="mb-4">Accounts Details</h6>
-                    <div class="table-responsive">
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">Subject</th>
-                                    <th scope="col">Message</th>
-                                    <th scope="col justify-content-center ">Details</th>
-                                    <th scope="col"></th>
-                                    <th scope="col"></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row" class="align-content-center"></th>
-                                    <td class="align-content-center"></td>
-                                    <td class="align-content-center"></td>
-                                    <td class="align-content-center"></td>
-                                    <td class="align-content-center" title=""></td>
-                                    <td class="align-content-center">
-                                        <a href="" class="text-white justify-content-center d-flex"
-                                            title="View Profile">
-                                            <i class="fa fa-eye"></i>
-                                        </a>
-                                    </td>
+<!-- Table Start -->
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-12">
+            <div class="bg-secondary rounded h-100 p-4">
+                <h6 class="mb-4">Inquiry Details</h6>
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Subject</th>
+                                <th scope="col">Message</th>
+                                <th scope="col" class="text-center">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($inquiries as $inquiry)
+                            <tr>
+                                <th scope="row">{{ $loop->iteration }}</th>
+                                <td>{{ $inquiry->name }}</td>
+                                <td>{{ $inquiry->email }}</td>
+                                <td>{{ $inquiry->subject }}</td>
+                                <td>{{ $inquiry->message }}</td>
+                                <td class="text-center">
+                                                                           <a href="{{ route('inquiries.show', $inquiry->id) }}" class="btn btn-info btn-sm">View</a>
 
-                                    <td class="align-content-center"> <a href="" class="btn btn-warning btn-sm"
-                                            title="Edit Profile">
-                                            <i class="fa fa-edit"></i>
-                                        </a>
-                                    </td>
-                                    <td class="align-content-center">
-                                        <form action="" method="POST" class="d-inline">
+                                                                           <a href="{{ route('inquiries.edit', $inquiry->id) }}" class="btn btn-warning btn-sm">Edit</a>
+
+                                     <form action="{{ route('inquiries.destroy', $inquiry->id) }}" method="POST" class="d-inline">
                                             @csrf
-                                            @method('POST')
-                                            <button type="submit" class="btn btn-sm btn-primary" title=""><i
-                                                    class="fa fa-trash"></i></button>
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
                                         </form>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Table End -->
-
-
+</div>
+<!-- Table End -->
 @endsection
-
 
 @push('scripts')
 @endpush

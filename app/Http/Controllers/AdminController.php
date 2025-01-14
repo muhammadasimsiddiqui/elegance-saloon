@@ -235,6 +235,9 @@ class AdminController extends Controller
         return redirect()->route('accounts')->with('success', 'User profile deleted successfully.');
     }
 
+
+    // Inquiries CRUD
+
     // Add this function to handle form submissions
     public function storeContact(Request $req)
     {
@@ -250,4 +253,50 @@ class AdminController extends Controller
     // Redirect to the home page after saving the inquiry
     return redirect('/');
     }
+
+      public function showInquiries()
+    {
+        // Fetch all inquiries from the database
+        $inquiries = Inquire::all();
+
+        // Pass the inquiries to the view
+        return view('backend.inquiries', compact('inquiries'));
+    }
+
+    public function editInquiries($id)
+    {
+        $inquiry = Inquire::findOrFail($id);
+        return view('backend.crudPartials.editInquiries', compact('inquiry'));
+    }
+
+    public function updateInquiries(Request $req, $id)
+    {
+        $inquiry = Inquire::findOrFail($id);
+
+        $inquiry->name = $req->inqName;
+        $inquiry->email = $req->inqEmail;
+        $inquiry->subject = $req->inqSubject;
+        $inquiry->message = $req->inqMessage;
+        $inquiry->save();
+
+        return redirect('/inquiries');   
+     }
+
+    public function destroyInquiries($id)
+    {
+        $inquiry = Inquire::findOrFail($id);
+        $inquiry->delete();
+
+        return redirect('/inquiries');  
+    }  
+    
+    public function showSingleInquiry($id)
+{
+    // Find the inquiry by its ID or fail with a 404 error
+    $inquiry = Inquire::findOrFail($id);
+
+    // Return the single inquiry details view
+    return view('backend.crudPartials.showInquiries', compact('inquiry'));
+}
+
 }
