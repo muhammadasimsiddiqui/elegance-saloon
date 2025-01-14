@@ -20,6 +20,7 @@ Route::get('/chart', [AdminController::class, 'chart'])->name('chart');
 Route::get('/element', [AdminController::class, 'element'])->name('element');
 Route::get('/form', [AdminController::class, 'form'])->name('form');
 Route::get('/dashboard', [AdminController::class, 'index'])->name('index');
+Route::get('/view-services', [AdminController::class, 'viewServices'])->name('viewServices');
 Route::get('/signin', [AdminController::class, 'signin'])->name('signin');
 Route::get('/signup', [AdminController::class, 'signup'])->name('signup');
 Route::get('/table', [AdminController::class, 'table'])->name('table');
@@ -73,3 +74,13 @@ Route::get('/inquiries/{id}/edit', [AdminController::class, 'editInquiries'])->n
 Route::put('/inquiries/{id}', [AdminController::class, 'updateInquiries'])->name('inquiries.update'); // Update inquiry
 Route::delete('/inquiries/{id}', [AdminController::class, 'destroyInquiries'])->name('inquiries.destroy'); // Delete inquiry
 
+
+
+
+
+// Services
+// Edit service route
+Route::get('/admin/services/edit/{id}', [AdminController::class, 'editService'])->name('edit.service');
+
+// Delete service route
+Route::delete('/admin/services/delete/{id}', [AdminController::class, 'deleteService'])->name('delete.service');

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\User; 
+use App\Models\Service; 
 use App\Models\Inquire;  // Ensure this is correctly referring to the Inquire model
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -41,6 +42,12 @@ class AdminController extends Controller
     public function index()
     {
         return view('backend.index');
+    }
+
+    public function viewServices()
+    {
+          $services = Service::all(); // Assuming a Service model exists for the services
+    return view('backend.services', compact('services'));
     }
 
     public function signin()

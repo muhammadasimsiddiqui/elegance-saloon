@@ -120,6 +120,14 @@
             >
                 <i class="fa fa-tachometer-alt me-2"></i>Dashboard
             </a>
+
+            <!-- Dashboard link -->
+            <a
+                href="{{ url('/view-services') }}"
+                class="nav-item nav-link {{ Route::currentRouteName() == 'view-services' ? 'active' : '' }}"
+            >
+                <i class="fa fa-tachometer-alt me-2"></i>Services
+            </a>
             
             <!-- Inquiries link -->
             <a
