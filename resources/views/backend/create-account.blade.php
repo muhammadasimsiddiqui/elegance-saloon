@@ -95,9 +95,9 @@
                             <div class="form-floating mb-3">
                                 <select class="form-select" id="designation" name="designation" aria-label="designation">
                                     <option value="" selected disabled>Designation</option>
-                                    <option value="1">Stylist</option>
-                                    <option value="2">Receptionist</option>
-                                    <option value="3">Other</option>
+                                    <option value="stylist">Stylist</option>
+                                    <option value="receptionist">Receptionist</option>
+                                    <option value="other">Other</option>
                                 </select>
                                 <label for="designation">Please Select Designation</label>
                             </div>

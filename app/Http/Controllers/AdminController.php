@@ -199,7 +199,11 @@ class AdminController extends Controller
         $user->role = $req->role;
         $user->designation = $req->designation;
         $user->username = $req->username;
-
+        if ($req->role == 'admin' || $req->role == 'customer') {
+            $user->designation = null;  // Remove or set empty if role is admin or customer
+        } else {
+            $user->designation = $req->designation;  // Set designation as usual
+        }        
         // Update password if provided
         if ($req->password) {
             $user->password = bcrypt($req->password);
