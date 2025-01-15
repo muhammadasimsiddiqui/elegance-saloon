@@ -55,7 +55,7 @@
                                     <input class="form-control form-control-sm bg-dark" id="serviceImg" type="file"
                                            name="serviceImg" accept="image/png, image/jpeg, image/gif">
                                     @if ($service->image_urls)
-                                        <img src="{{ asset('images/services/' . $service->image_urls) }}" alt="Service Image"
+                                        <img src="{{ asset($service->image_urls) }}" alt="Service Image"
                                              class="mt-2" style="width: 100px; height: auto;">
                                     @endif
                                 </div>

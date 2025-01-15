@@ -152,6 +152,10 @@
         </form>
     </div>
     <!-- Add Services Section End -->
+    {{-- <a href="{{ route('services', ['name' => strtolower(str_replace(' ', '-', $service->name))]) }}">
+    {{ $service->name }}
+</a>
+ --}}
 @endsection
 
 @push('scripts')

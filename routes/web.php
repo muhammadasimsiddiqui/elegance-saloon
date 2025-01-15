@@ -2,12 +2,14 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
 
 // Frontend Routes
 Route::get('/', [UserController::class, 'home'])->name('home');
 Route::get('/about', [UserController::class, 'about'])->name('about');
 Route::get('/services', [UserController::class, 'services'])->name('services');
+Route::get('/services/{name}', [ServiceController::class, 'servicesDetail'])->name('services');
 Route::get('/appointment', [UserController::class, 'appointment'])->name('appointment');
 Route::get('/contact', [UserController::class, 'contact'])->name('contact');
 
@@ -65,8 +67,6 @@ Route::post('/delete/{id}', [AdminController::class, 'destroy'])->name('user.des
 Route::post('/contact', [AdminController::class, 'storeContact'])->name('contact.store');
 
 
-
-// Inquiries
 // Inquiries
 Route::get('/inquiries', [AdminController::class, 'showInquiries'])->name('backend.inquiries'); // List all inquiries
 Route::get('/inquiries/{id}', [AdminController::class, 'showSingleInquiry'])->name('inquiries.show'); // View single inquiry
@@ -83,13 +83,8 @@ Route::delete('/inquiries/{id}', [AdminController::class, 'destroyInquiries'])->
 
 
 // Delete service route
-Route::delete('/service/{id}', [AdminController::class, 'deleteService'])->name('delete.service');
-
-Route::post('/saveservices', [AdminController::class, 'storeService'])->name('services.store');
-
-// Route for displaying the edit form
-Route::get('/service/edit/{id}', [AdminController::class, 'editService'])->name('services.edit');
-
-// Route for updating the service
-Route::put('/service/{id}', [AdminController::class, 'updateService'])->name('services.update');
-Route::get('/services/{id}', [AdminController::class, 'showServices'])->name('services.showServices');
+Route::delete('/view-services/{id}', [ServiceController::class, 'deleteService'])->name('delete.service');
+Route::post('/saveservices', [ServiceController::class, 'storeService'])->name('services.store');
+Route::get('/view-services/edit/{id}', [ServiceController::class, 'editService'])->name('services.edit');
+Route::put('/view-services/{id}', [ServiceController::class, 'updateService'])->name('services.update');
+Route::get('/view-services/{id}', [ServiceController::class, 'showServices'])->name('services.showServices');

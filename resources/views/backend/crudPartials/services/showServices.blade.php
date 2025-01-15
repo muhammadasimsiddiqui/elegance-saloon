@@ -12,32 +12,28 @@
                         <div class="col-md-6">
                             <img src="{{ asset($service->image_urls) }}" alt="Service Image" class="img-fluid">
                         </div>
-                        <div class="col-md-6">
-                             <table class="table table-striped">
-                        <tr>
-                            <th>ID</th>
-                         <td>{{ $service->id }}</td>
-                        </tr>
-                        <tr>
-                            <th>Name</th>
-        <td>{{ $service->name }}</td>
-                        </tr>
-                        <tr>
-                            <th>Description</th>
-        <td>{{ $service->description }}</td>
-                        </tr>
-                        <tr>
-                            <th>Price</th>
-        <td>{{ $service->price }}</td>
-                        </tr>
-                        <tr>
-                            <th>Timming</th>
-        <td>{{ $service->duration }}</td>
-                        </tr>
-                    </table>
+                        <div class="col-md-6 table-responsive">
+                            <table class="table table-striped">
+                                <tr>
+                                    <th>Name</th>
+                                    <td>{{ $service->name }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Description</th>
+                                    <td style="word-wrap: break-word; word-break: break-word; white-space: normal; "> <p style="  max-height: 300px; overflow-y: auto;"> {{ $service->description }}</p></td>
+                                </tr>
+                                <tr>
+                                    <th>Price</th>
+                                    <td>{{ $service->price }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Timing</th>
+                                    <td>{{ $service->duration }}</td>
+                                </tr>
+                            </table>
                         </div>
                     </div>
-                   
+
                 </div>
             </div>
         </div>

@@ -14,7 +14,7 @@
                                         <span class="icon-bar"></span>
                                     </button>
                                     <a class="navbar-brand" href="{{ url('/') }}">
-                                        <img src="frontend/assets/images/others/white-logo.png" alt="Elegance Salon">
+                                        <img src="{{ asset('frontend/assets/images/others/white-logo.png') }}" alt="Elegance Salon">
                                     </a>
                                 </div> <!--/.navbar-header-->
 

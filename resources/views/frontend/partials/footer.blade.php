@@ -3,7 +3,7 @@
                 <div class="row mb30">
                     <div class="col-md-12">
                         <div class="footer-logo">
-                            <img src="frontend/assets/images/others/footer-logo.png" alt="" class="img-center img-responsive">
+                            <img src="{{ asset('frontend/assets/images/others/footer-logo.png') }}" alt="" class="img-center img-responsive">
                         </div>
                     </div>
                 </div>

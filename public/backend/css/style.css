@@ -6,6 +6,27 @@
     --dark: #000000;
 }
 
+/* For all elements in the body */
+html,
+body,
+section,
+div,
+th,
+td,
+tr,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+textarea,
+input {
+    scrollbar-width: thin;  /* Firefox (for thin scrollbar) */
+}
+
+
 .back-to-top {
     position: fixed;
     display: none;
