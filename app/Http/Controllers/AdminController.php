@@ -319,9 +319,9 @@ public function storeService(Request $req)
  $ser = new Service();
         $ser->name = $req->name;
         $ser->price = $req->price;
-        $ser->duration = $req->time;
+        $ser->duration = (string)$req->time;
         $ser->description = $req->desc;
-        $ser->image_urls = $imageFullPath;  // Store as JSON array
+        $ser->image_urls = $imageFullPath; 
         $ser->save();
     
     return redirect('/view-services');   
