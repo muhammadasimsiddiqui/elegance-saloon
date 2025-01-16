@@ -31,7 +31,7 @@
                 <div class="section-title text-center">
                     <img src="{{ asset('frontend/assets/images/title-img/title-img-2.png') }}" class="title-img mb15" alt="">
                     <h3 class="title">{{ $service->name }}</h3>
-                    <p class="sub-title">Find the Best Beard Style for Your Face Shape</p>
+                    {{-- <p class="sub-title">Find the Best Beard Style for Your Face Shape</p> --}}
                 </div>
             </div> <!-- /.col -->
         </div> <!-- /.row -->

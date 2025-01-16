@@ -46,8 +46,8 @@ class AdminController extends Controller
 
     public function viewServices()
     {
-          $services = Service::all(); // Assuming a Service model exists for the services
-    return view('backend.services', compact('services'));
+        $services = Service::all();
+        return view('backend.services', compact('services'));
     }
 
     public function signin()

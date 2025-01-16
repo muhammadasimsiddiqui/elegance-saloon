@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Http\Request;
-use App\Models\User; 
-use App\Models\Service; 
-use Illuminate\Support\Facades\File;
 
+use App\Models\Service;
+use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class ServiceController extends Controller
 {
@@ -51,7 +51,6 @@ class ServiceController extends Controller
         return redirect('/view-services');
     }
 
-    // Services
     public function storeService(Request $req)
     {
         if ($req->hasFile('serviceImg')) {
@@ -109,16 +108,22 @@ class ServiceController extends Controller
     //     return view('frontend.singleservice', compact('service'));
     // }
     public function servicesDetail($name)
-{
-    // Replace hyphens with spaces
-    $name =     strtolower(str_replace('-', ' ', $name));
+    {
+        // Replace hyphens with spaces
+        $name = strtolower(str_replace('-', ' ', $name));
 
+        // Find the service by name (you could also add more robust validation)
+        $service = Service::where('name', $name)->firstOrFail();
 
-    // Find the service by name (you could also add more robust validation)
-    $service = Service::where('name', $name)->firstOrFail();
+        // Return the view with the service data
+        return view('frontend.singleservice', compact('service'));
+    }
 
-    // Return the view with the service data
-    return view('frontend.singleservice', compact('service'));
-}
+    public function listAllServices()
+    {
+        $services = Service::all();  // Fetch all services
+        return view('frontend.services', compact('services'));
+    }
 
+    // {{ $services->links() }}
 }

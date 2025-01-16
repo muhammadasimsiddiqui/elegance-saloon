@@ -30,124 +30,35 @@
                     <div class="col-xs-12">
                         <div class="section-title text-center">
                             <img src="frontend/assets/images/title-img/title-img-2.png" class="title-img mb15" alt="">
-                            <h3 class="title">Service 3 Column</h3>
+                            <h3 class="title">Services</h3>
                             <p class="sub-title">A wide range of male grooming services under one roof</p>
                         </div>
                     </div> <!-- /.col -->
                 </div> <!-- /.row -->
             </div> <!--/.container-->
             <div class="container">
-                <div class="row  row-eq-height">
-                    <div class="col-md-4">
-                        <div class="service-col alt mb30">
-                            <div class="service-thumb">
-                                <img class="img-responsive" src="frontend/assets/images/service/service-4.jpg" alt="">
-                            </div>
-                            <div class="service-content">
-                                <div class="service-header">
-                                    <h2>Shaves & Hot Towels</h2>
-                                    <span class="time"><i class="fa fa-clock-o"></i> 30 min</span>
-                                </div>
-                                <div class="clearfix"></div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae omnis quaerat delectus quisquam expedita adipisci rem iure</p>
-                                <div class="service-btn text-center">
-                                    <a href="#" class="btn btn-primary sbtn-hvr-out">Learn more</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div> <!-- /.col -->
-                    <div class="col-md-4">
-                        <div class="service-col alt mb30">
-                            <div class="service-thumb">
-                                <img class="img-responsive" src="frontend/assets/images/service/service-1.jpg" alt="">
-                            </div>
-                            <div class="service-content">
-                                <div class="service-header">
-                                    <h2>Beard Styling & Treatments</h2>
-                                    <span class="time"><i class="fa fa-clock-o"></i> 30 min</span>
-                                </div>
-                                <div class="clearfix"></div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae omnis quaerat delectus quisquam expedita adipisci rem iure</p>
-                                <div class="service-btn text-center">
-                                    <a href="#" class="btn btn-primary sbtn-hvr-out">Learn more</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div> <!-- /.col -->
-                    <div class="col-md-4">
-                        <div class="service-col alt mb30">
-                            <div class="service-thumb">
-                                <img class="img-responsive" src="frontend/assets/images/service/service-3.jpg" alt="">
-                            </div>
-                            <div class="service-content">
-                                <div class="service-header">
-                                    <h2>Signature Package</h2>
-                                    <span class="time"><i class="fa fa-clock-o"></i> 30 min</span>
-                                </div>
-                                <div class="clearfix"></div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae omnis quaerat delectus quisquam expedita adipisci rem iure</p>
-                                <div class="service-btn text-center">
-                                    <a href="#" class="btn btn-primary sbtn-hvr-out">Learn more</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div> <!-- /.col -->
-                </div> <!--/.row-->
                 <div class="row row-eq-height">
+                    @foreach ($services as $service)
                     <div class="col-md-4">
                         <div class="service-col alt mb30">
                             <div class="service-thumb">
-                                <img class="img-responsive" src="frontend/assets/images/service/service-5.jpg" alt="">
+                                <img class="img-responsive" src="{{ asset($service->image_urls) }}" alt="" style="min-height: 260px; max-height:260px; min-width: 100%; max-width:100%;">
                             </div>
                             <div class="service-content">
                                 <div class="service-header">
-                                    <h2>Barbershop Facials</h2>
-                                    <span class="time"><i class="fa fa-clock-o"></i> 30 min</span>
+                                    <h2> {{ $service->name }}</h2>
+                                    <span class="time"><i class="fa fa-clock-o"></i> {{ $service->duration }}</span>
                                 </div>
                                 <div class="clearfix"></div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae omnis quaerat delectus quisquam expedita adipisci rem iure</p>
+                                <p>{{ $service->description }}</p>
                                 <div class="service-btn text-center">
-                                    <a href="#" class="btn btn-primary sbtn-hvr-out">Learn more</a>
+                                    <a href="/services/{{ strtolower(str_replace(' ', '-', $service->name)) }}" class="btn btn-primary sbtn-hvr-out">Book Now</a>
+
                                 </div>
                             </div>
                         </div>
                     </div> <!-- /.col -->
-                    <div class="col-md-4">
-                        <div class="service-col alt xs-mb30">
-                            <div class="service-thumb">
-                                <img class="img-responsive" src="frontend/assets/images/service/service-2.jpg" alt="">
-                            </div>
-                            <div class="service-content">
-                                <div class="service-header">
-                                    <h2>Treatment Lounge</h2>
-                                    <span class="time"><i class="fa fa-clock-o"></i> 30 min</span>
-                                </div>
-                                <div class="clearfix"></div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae omnis quaerat delectus quisquam expedita adipisci rem iure</p>
-                                <div class="service-btn text-center">
-                                    <a href="#" class="btn btn-primary sbtn-hvr-out">Learn more</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div> <!-- /.col -->
-                    <div class="col-md-4">
-                        <div class="service-col alt">
-                            <div class="service-thumb">
-                                <img class="img-responsive" src="frontend/assets/images/service/service-6.jpg" alt="">
-                            </div>
-                            <div class="service-content">
-                                <div class="service-header">
-                                    <h2>Wax Couch</h2>
-                                    <span class="time"><i class="fa fa-clock-o"></i> 30 min</span>
-                                </div>
-                                <div class="clearfix"></div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae omnis quaerat delectus quisquam expedita adipisci rem iure</p>
-                                <div class="service-btn text-center">
-                                    <a href="#" class="btn btn-primary sbtn-hvr-out">Learn more</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div> <!-- /.col -->
+                    @endforeach
                 </div> <!-- /.row -->
             </div> <!--/.container-->
         </div>
