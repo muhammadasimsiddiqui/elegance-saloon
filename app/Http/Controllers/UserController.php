@@ -53,8 +53,8 @@ $Appointments= DB::table('appointments')
         {
             // return $req-> all();
 Appointment::create($req-> all());
-return "hogaya";
-            // return view('frontend.contact');
+// return "hogaya";
+            return view('frontend.contact');
         }
 
 

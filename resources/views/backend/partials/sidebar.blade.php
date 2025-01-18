@@ -64,12 +64,12 @@
             </a>
             
             <!-- Reports link -->
-            <a
+            {{-- <a
                 href="{{ url('/reports') }}"
                 class="nav-item nav-link {{ Route::currentRouteName() == 'reports' ? 'active' : '' }}"
             >
                 <span><i class="fa fa-chart-line me-2"></i>Reports</span>
-            </a>
+            </a> --}}
             
             <!-- Accounts dropdown menu -->
             <div class="nav-item dropdown">
@@ -83,10 +83,10 @@
                         href="{{ url('/accounts') }}"
                         class="dropdown-item {{ Route::currentRouteName() == 'accounts' ? 'active' : '' }}"
                     >Accounts Details</a>
-                    <a
+                    {{-- <a
                         href="{{ url('/permissions') }}"
                         class="dropdown-item {{ Route::currentRouteName() == 'permissions' ? 'active' : '' }}"
-                    >Permissions</a>
+                    >Permissions</a> --}}
                     <a
                         href="{{ url('/create-account') }}"
                         class="dropdown-item {{ Route::currentRouteName() == 'create-account' ? 'active' : '' }}"
@@ -95,7 +95,7 @@
             </div>
             
             <!-- System Configuration link -->
-            <a
+            {{-- <a
                 href="{{ url('/system-configuration') }}"
                 class="nav-item nav-link {{ Route::currentRouteName() == 'system-configuration' ? 'active' : '' }}"
             >
@@ -103,17 +103,17 @@
                     <i class="fa fa-cogs me-2"></i>
                     <span class="align-content-center">System Configuration</span>
                 </div>
-            </a>
+            </a> --}}
 
             <!-- Data Backup & Restore link -->
-            <a
+            {{-- <a
                 href="{{ url('/data-backup-restore') }}"
                 class="nav-item nav-link {{ Route::currentRouteName() == 'data-backup-restore' ? 'active' : '' }}"
             >
                 <div class="d-flex">
                     <i class="fa fa-hdd me-2"></i>
                     <span class="align-content-center">Data Backup & Restore</span>
-                </div>
+                </div> --}}
             </a>
             <a
                 href="{{ url('/logout') }}"

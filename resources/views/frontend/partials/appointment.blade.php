@@ -2,7 +2,7 @@
     @csrf
     <div class="row">
         <div class="col-md-6">
-            <div class="form-group">
+            <div class="form-group" style="display: none;">
                 <input type="text" class="form-control" placeholder="User Id" value="1" name="user_id" required
                     data-error="Choose a date">
                 <div class="help-block with-errors"></div>

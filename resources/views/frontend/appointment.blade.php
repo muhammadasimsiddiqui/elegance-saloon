@@ -53,8 +53,21 @@
     @include('frontend.partials.team')
     <!-- team area end -->
 
-
-    <table>
+     <!-- about area start -->
+    <div class="about-area bg-color-1 pad120">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="section-title text-center">
+                        <img src="frontend/assets/images/title-img/title-img-2.png" class="title-img mb15" alt="">
+                        <h3 class="title">Appointments History</h3>
+                        <p class="sub-title">A wide range of male grooming services under one roof</p>
+                    </div>
+                </div> <!-- /.col -->
+            </div> <!-- /.row -->
+        </div> <!--/.container-->
+        <div class="container">
+             <table class="table">
         <thead>
             <th>S.No</th>
             <th>Stylist</th>
@@ -76,6 +89,10 @@
         @endforeach
 
     </table>
+
+        </div> <!--/.container-->
+    </div>
+    <!-- service area end -->
 
     <!-- hair-style area start -->
     <div class="hair-style pad120 parallax bg-3">

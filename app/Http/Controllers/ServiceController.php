@@ -108,7 +108,7 @@ class ServiceController extends Controller
     //     return view('frontend.singleservice', compact('service'));
     // }
     public function servicesDetail($name)
-    {
+    {  $Services = Service::all();     $Stylist =  User::where('designation', 'stylist')->get(); 
         // Replace hyphens with spaces
         $name = strtolower(str_replace('-', ' ', $name));
 
@@ -116,7 +116,7 @@ class ServiceController extends Controller
         $service = Service::where('name', $name)->firstOrFail();
 
         // Return the view with the service data
-        return view('frontend.singleservice', compact('service'));
+return view('frontend.singleservice', ['Stylist'=> $Stylist, 'Services' => $Services, 'service' => $service]);
     }
 
     public function listAllServices()
