@@ -48,6 +48,7 @@ Route::get('/data-backup-restore', [AdminController::class, 'dataBackupRestore']
 
 
 // SAVE DATA
+Route::get('/registerUser',[AdminController::class,'userRegister']);
 Route::post('/registerUser',[AdminController::class,'userRegister']);
 
 // User Edit

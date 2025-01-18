@@ -39,13 +39,17 @@
                 <i class="fa fa-tachometer-alt me-2"></i>Dashboard
             </a>
 
-            <!-- Dashboard link -->
-            <a
+            
+                                            <a
                 href="{{ url('/view-services') }}"
                 class="nav-item nav-link {{ Route::currentRouteName() == 'view-services' ? 'active' : '' }}"
             >
                 <i class="fa fa-tachometer-alt me-2"></i>Services
             </a>
+                                        
+
+            <!-- Dashboard link -->
+            
             
             <!-- Inquiries link -->
             <a
@@ -71,7 +75,7 @@
                 <span><i class="fa fa-chart-line me-2"></i>Reports</span>
             </a> --}}
             
-            <!-- Accounts dropdown menu -->
+        <!-- Accounts dropdown menu -->
             <div class="nav-item dropdown">
                 <a
                     href="#"
@@ -83,16 +87,17 @@
                         href="{{ url('/accounts') }}"
                         class="dropdown-item {{ Route::currentRouteName() == 'accounts' ? 'active' : '' }}"
                     >Accounts Details</a>
-                    {{-- <a
-                        href="{{ url('/permissions') }}"
-                        class="dropdown-item {{ Route::currentRouteName() == 'permissions' ? 'active' : '' }}"
-                    >Permissions</a> --}}
+                                 @if (Auth::user()->role == "admin")
+
                     <a
                         href="{{ url('/create-account') }}"
                         class="dropdown-item {{ Route::currentRouteName() == 'create-account' ? 'active' : '' }}"
                     >Create New Account</a>
+                       @endif
                 </div>
             </div>
+          
+            
             
             <!-- System Configuration link -->
             {{-- <a

@@ -59,15 +59,14 @@
 
                                             <a href="{{ route('services.showServices', ['id' => $service->id]) }}"
                                                 class="btn btn-info btn-sm">View</a>
-                                            <a href="{{ route('services.edit', $service->id) }}"
-                                                class="btn btn-warning btn-sm">Edit</a>
-                                            <form action="{{ route('delete.service', $service->id) }}" method="POST"
-                                                style="display:inline;">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                                            </form>
-
+                                                          @if (Auth::check() && Auth::user()->role == "admin")
+    <a href="{{ route('services.edit', $service->id) }}" class="btn btn-warning btn-sm">Edit</a>
+    <form action="{{ route('delete.service', $service->id) }}" method="POST" style="display:inline;">
+        @csrf
+        @method('DELETE')
+        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+    </form>
+@endif
                                         </td>
                                     </tr>
                                 @endforeach

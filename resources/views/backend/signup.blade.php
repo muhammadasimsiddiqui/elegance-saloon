@@ -16,18 +16,23 @@
                         </a>
                         <h3>Sign Up</h3>
                     </div>
-                    <form action="">
+                    <form action="/registerUser">
+                        @csrf
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="floatingText" placeholder="jhondoe">
-                            <label for="floatingText">Username</label>
+                            <input type="text" class="form-control" id="firstname" placeholder="jhondoe" name="firstname">
+                            <label for="firstname">First Name</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                            <label for="floatingInput">Email address</label>
+                            <input type="text" class="form-control" id="lastname" placeholder="jhondoe" name="lastname">
+                            <label for="lastname">Last Name</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control" id="email" placeholder="name@example.com" name="email">
+                            <label for="email">Email address</label>
                         </div>
                         <div class="form-floating mb-4">
-                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                            <label for="floatingPassword">Password</label>
+                            <input type="password" class="form-control" id="password" placeholder="Password" name="password">
+                            <label for="password">Password</label>
                         </div>
                         <div class="d-flex align-items-center justify-content-between mb-4">
                             <div class="form-check">

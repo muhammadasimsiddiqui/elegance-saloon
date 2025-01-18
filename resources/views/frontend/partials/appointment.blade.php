@@ -2,7 +2,7 @@
     @csrf
     <div class="row">
         <div class="col-md-6">
-            <div class="form-group" >
+            <div class="form-group" style="display: none;">
                 <input type="text" class="form-control" placeholder="User Id" value="{{Auth::id()}}" name="user_id" required
                    >
                 <div class="help-block with-errors"></div>

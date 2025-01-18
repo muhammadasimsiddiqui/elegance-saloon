@@ -56,7 +56,7 @@ $Appointments= DB::table('appointments')
             // return $req-> all();
 Appointment::create($req-> all());
 // return "hogaya";
-             return redirect('appointments'); ;
+             return redirect('/appointment'); ;
         }
 
 
