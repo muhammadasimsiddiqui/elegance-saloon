@@ -106,4 +106,46 @@
     </div> <!--/.container-->
 </div>
 <!-- facility area end -->
+
+ <!-- booking area start -->
+        <div class="booking-area bg-color-1">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="section-title text-center">
+                            <img src="{{ asset('frontend/assets/images/title-img/title-img-3.png') }}" class="title-img mb15" alt="">
+                            <h3 class="title">We are <strong>available</strong></h3>
+                            <p class="sub-title">Dedicated To Providing Excellence In Our Service</p>
+                        </div>
+                    </div> <!-- /.col -->
+                </div> <!-- /.row -->
+            </div> <!--/.container-->
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-5 col-sm-6">
+                    	<div class="store-timing mt60">
+                    		<h4>Opening time</h4>
+                    		<p>Monday to Wednesday <span class="pull-right">07.00 am - 10:00 pm</span></p>
+                    		<p>Friday and Saturday <span class="pull-right">12.00 pm - 10:30 pm</span></p>
+                    	</div>
+                    	<div class="store-timing mt60">
+                    		<h4>Closing time</h4>
+                    		<p>Friday and Saturday <span class="pull-right">12.00 pm - 10:30 pm</span></p>
+                    		<p>Sunday <span class="pull-right">Weekend</span></p>
+                    	</div>
+                    </div> <!-- /.col -->
+                    <div class="col-md-2 hidden-sm hidden-xs">
+                    	<img src="{{ asset('frontend/assets/images/others/scissor.png') }}" alt="" class="img-responsive">
+                    </div> <!-- /.col -->
+                    <div class="col-md-5 col-sm-6 sm-pad-b">
+                        <!-- booking form start -->
+                        <div class="mt65" >
+                            @include('frontend.partials.appointment')
+                        </div>
+                    	<!-- booking form end -->
+                    </div> <!-- /.col -->
+                </div> <!-- /.row -->
+            </div> <!--/.container-->
+        </div>
+        <!-- booking area end -->
 @endsection

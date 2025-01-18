@@ -115,10 +115,10 @@
                                         <div class="form-floating mb-3">
                                             <input type="text" class="form-control" id="time" name="time"
                                                 placeholder="Enter working time (e.g., 30min, 1hr)"
-                                                pattern="^([1-9][0-9]*\s?(min|hr|hours))$" required>
+                                                       pattern="^(([1-9][0-9]*\s?(min|hr|hours))|([1-9][0-9]*:[0-5][0-9]\s?(hr|hours)))$" required>
                                             <label for="time">Timing</label>
                                             <small class="form-text text-muted">
-                                                Format: "30min", "1hr", "2 hours", etc.
+                                                Format: "30min", "1hr", "2 hours", "1:30hr", etc.
                                             </small>
                                         </div>
                                     </div>

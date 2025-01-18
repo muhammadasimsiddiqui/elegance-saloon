@@ -28,10 +28,11 @@ Route::get('/signup', [AdminController::class, 'signup'])->name('signup');
 Route::get('/table', [AdminController::class, 'table'])->name('table');
 Route::get('/typography', [AdminController::class, 'typography'])->name('typography');
 Route::get('/widget', [AdminController::class, 'widget'])->name('widget');
+Route::post('/appointmentstatus', [AdminController::class, 'AppointmentStatus']);
 
 // Inquiries & Orders Routes
 Route::get('/inquiries', [AdminController::class, 'inquiries'])->name('inquiries');
-Route::get('/orders', [AdminController::class, 'orders'])->name('orders');
+Route::get('/appointments', [AdminController::class, 'appointments'])->name('appointments');
 
 // Reports Routes
 Route::get('/reports', [AdminController::class, 'reports'])->name('reports');
@@ -88,3 +89,11 @@ Route::post('/saveservices', [ServiceController::class, 'storeService'])->name('
 Route::get('/view-services/edit/{id}', [ServiceController::class, 'editService'])->name('services.edit');
 Route::put('/view-services/{id}', [ServiceController::class, 'updateService'])->name('services.update');
 Route::get('/view-services/{id}', [ServiceController::class, 'showServices'])->name('services.showServices');
+
+
+
+
+//book service
+Route::post('/bookAppointment', [UserController::class, 'bookAppointment']);
+
+

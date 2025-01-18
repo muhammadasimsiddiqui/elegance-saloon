@@ -5,7 +5,7 @@
         <!-- Brand logo and name -->
         <a href="index.html" class="navbar-brand mx-4 mb-3">
             <h3 class="text-primary">
-                <i class="fa fa-user-edit me-2"></i>DarkPan
+                Elegance Saloon
             </h3>
         </a>
         
@@ -30,89 +30,7 @@
         
         <!-- Navigation links -->
         <div class="navbar-nav w-100">
-            
-            <!-- Elements dropdown menu -->
-            <div class="nav-item dropdown">
-                <a
-                    href="#"
-                    class="nav-link dropdown-toggle"
-                    data-bs-toggle="dropdown"
-                    ><i class="fa fa-laptop me-2"></i>Elements</a>
-                <div class="dropdown-menu bg-transparent border-0">
-                    <a
-                        href="{{ url('/button') }}"
-                        class="dropdown-item {{ Route::currentRouteName() == 'button' ? 'active' : '' }}"
-                    >Buttons</a>
-                    <a
-                        href="{{ url('/typography') }}"
-                        class="dropdown-item {{ Route::currentRouteName() == 'typography' ? 'active' : '' }}"
-                    >Typography</a>
-                    <a
-                        href="{{ url('/element') }}"
-                        class="dropdown-item {{ Route::currentRouteName() == 'element' ? 'active' : '' }}"
-                    >Other Elements</a>
-                </div>
-            </div>
-            
-            <!-- Widgets link -->
-            <a
-                href="{{ url('/widget') }}"
-                class="nav-item nav-link {{ Route::currentRouteName() == 'widget' ? 'active' : '' }}"
-            >
-                <i class="fa fa-th me-2"></i>Widgets
-            </a>
-            
-            <!-- Forms link -->
-            <a
-                href="{{ url('/form') }}"
-                class="nav-item nav-link {{ Route::currentRouteName() == 'form' ? 'active' : '' }}"
-            >
-                <i class="fa fa-keyboard me-2"></i>Forms
-            </a>
-            
-            <!-- Tables link -->
-            <a
-                href="{{ url('/table') }}"
-                class="nav-item nav-link {{ Route::currentRouteName() == 'table' ? 'active' : '' }}"
-            >
-                <i class="fa fa-table me-2"></i>Tables
-            </a>
-            
-            <!-- Charts link -->
-            <a
-                href="{{ url('/chart') }}"
-                class="nav-item nav-link {{ Route::currentRouteName() == 'chart' ? 'active' : '' }}"
-            >
-                <i class="fa fa-chart-bar me-2"></i>Charts
-            </a>
-            
-            <!-- Pages dropdown menu -->
-            <div class="nav-item dropdown">
-                <a
-                    href="#"
-                    class="nav-link dropdown-toggle"
-                    data-bs-toggle="dropdown"
-                    ><i class="far fa-file-alt me-2"></i>Pages</a>
-                <div class="dropdown-menu bg-transparent border-0">
-                    <a
-                        href="{{ url('/signin') }}"
-                        class="dropdown-item {{ Route::currentRouteName() == 'signin' ? 'active' : '' }}"
-                    >Sign In</a>
-                    <a
-                        href="{{ url('/signup') }}"
-                        class="dropdown-item {{ Route::currentRouteName() == 'signup' ? 'active' : '' }}"
-                    >Sign Up</a>
-                    <a
-                        href="{{ url('/404') }}"
-                        class="dropdown-item {{ Route::currentRouteName() == '404' ? 'active' : '' }}"
-                    >404 Error</a>
-                    <a
-                        href="{{ url('/blank') }}"
-                        class="dropdown-item {{ Route::currentRouteName() == 'blank' ? 'active' : '' }}"
-                    >Blank Page</a>
-                </div>
-            </div>
-            
+
             <!-- Dashboard link -->
             <a
                 href="{{ url('/dashboard') }}"
@@ -137,12 +55,12 @@
                 <i class="fa fa-envelope me-2"></i>Inquiries
             </a>
             
-            <!-- Orders link -->
+            <!-- Appointments link -->
             <a
-                href="{{ url('/orders') }}"
-                class="nav-item nav-link {{ Route::currentRouteName() == 'orders' ? 'active' : '' }}"
+                href="{{ url('/appointments') }}"
+                class="nav-item nav-link {{ Route::currentRouteName() == 'appointments' ? 'active' : '' }}"
             >
-                <i class="fa fa-shopping-cart me-2"></i>Orders
+                <i class="fa fa-shopping-cart me-2"></i>Appointments
             </a>
             
             <!-- Reports link -->

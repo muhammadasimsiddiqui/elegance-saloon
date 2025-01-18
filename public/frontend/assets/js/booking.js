@@ -1,5 +1,6 @@
 (function($) {
     $('#book-date').datepicker();
+    $("#book-time").timepicker();
 
     $(document).ready(function(){
         $("#booking-form").validator().on("submit", function (event) {

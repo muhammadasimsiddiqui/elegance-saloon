@@ -3,40 +3,18 @@
 namespace App\Http\Controllers;
 use App\Models\User; 
 use App\Models\Service; 
+use App\Models\Appointment; 
 use App\Models\Inquire;  // Ensure this is correctly referring to the Inquire model
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\DB;
+
 
 class AdminController extends Controller
 {
     public function error404()
     {
         return view('backend.404');
-    }
-
-    public function blank()
-    {
-        return view('backend.blank');
-    }
-
-    public function button()
-    {
-        return view('backend.button');
-    }
-
-    public function chart()
-    {
-        return view('backend.chart');
-    }
-
-    public function element()
-    {
-        return view('backend.element');
-    }
-
-    public function form()
-    {
-        return view('backend.form');
     }
 
     public function index()
@@ -60,34 +38,42 @@ class AdminController extends Controller
         return view('backend.signup');
     }
 
-    public function table()
-    {
-        return view('backend.table');
-    }
-
-    public function typography()
-    {
-        return view('backend.typography');
-    }
-
-    public function widget()
-    {
-        return view('backend.widget');
-    }
-
     public function inquiries()
     {
-        return view('backend.inquiries');
+        return view('backend.crudPartials.inquiries.inquiries');
     }
 
-    public function orders()
+    public function appointments()
     {
-        return view('backend.orders');
+        $Appointments= DB::table('appointments')
+    ->join('users', 'appointments.stylist_id', '=', 'users.id')
+    ->join('services', 'appointments.service_id', '=', 'services.id')
+    ->get();
+
+            $Customer = DB::table('appointments')
+    ->join('users', 'appointments.user_id', '=', 'users.id')
+    ->select(
+        'appointments.id as appointment_id',  // Alias for the appointment's id
+        'users.id as user_id',                // Alias for the user's id
+        'users.*',                            // All other column from users
+        'appointments.*'                      // All other columns from appointments
+    )
+    ->get();
+
+    // return $Appointments;
+        return view('backend.appointments', ['Appointments'=>$Appointments,'Customer'=>$Customer]);
     }
 
     public function reports()
     {
         return view('backend.reports');
+    }
+    public function AppointmentStatus(Request $request)
+    { 
+        $app = Appointment::find($request->app_id);
+        $app->apt_status = $request->status;
+        $app->save();
+        return redirect('appointments');
     }
 
     public function accounts()
