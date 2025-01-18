@@ -8,6 +8,8 @@ use App\Models\Inquire;  // Ensure this is correctly referring to the Inquire mo
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+
 
 
 class AdminController extends Controller
@@ -19,28 +21,78 @@ class AdminController extends Controller
 
     public function index()
     {
-        return view('backend.index');
+
+        if(Auth::check()){
+if(Auth::user()->role == "admin" || Auth::user()->role == "employee"){
+return view('backend.index');
+}else{
+return redirect('/');
+}
+}else{
+return redirect('/');
+}
     }
+
+     public function logout(Request $req)
+
+        {
+                                Auth::logout();
+
+                              return redirect('/signin');
+
+        }
 
     public function viewServices()
     {
-        $services = Service::all();
-        return view('backend.services', compact('services'));
-    }
 
-    public function signin()
-    {
-        return view('backend.signin');
+
+          if(Auth::check()){
+if(Auth::user()->role == "admin" || Auth::user()->role == "employee"){
+ $services = Service::all();
+        return view('backend.services', compact('services'));
+}else{
+return view('/');
+}
+}else{
+return redirect('/');
+}
+       
     }
+public function signin()
+{
+    if (Auth::check()) {
+        if (Auth::user()->role == "admin" || Auth::user()->role == "employee" || Auth::user()->role == "customer") {
+            return redirect('/'); 
+        }
+    } else {
+        return view('backend.signin'); 
+    }
+}
 
     public function signup()
     {
-        return view('backend.signup');
+           if (Auth::check()) {
+        if (Auth::user()->role == "admin" || Auth::user()->role == "employee" || Auth::user()->role == "customer") {
+            return redirect('/'); 
+        }
+    } else {
+         return view('backend.signup'); 
+    }
     }
 
     public function inquiries()
     {
-        return view('backend.crudPartials.inquiries.inquiries');
+
+           if(Auth::check()){
+if(Auth::user()->role == "admin" || Auth::user()->role == "employee"){
+    
+ return view('backend.crudPartials.inquiries.inquiries');
+}else{
+return view('/');
+}
+}else{
+return redirect('/');
+}
     }
 
     public function appointments()
@@ -59,55 +111,116 @@ class AdminController extends Controller
         'appointments.*'                      // All other columns from appointments
     )
     ->get();
-
+ if(Auth::check()){
+if(Auth::user()->role == "admin" || Auth::user()->role == "employee"){
+  return view('backend.appointments', ['Appointments'=>$Appointments,'Customer'=>$Customer]);
+}else{
+return redirect('/');
+}
+}else{
+return redirect('/');
+}
     // return $Appointments;
-        return view('backend.appointments', ['Appointments'=>$Appointments,'Customer'=>$Customer]);
+       
     }
 
     public function reports()
     {
-        return view('backend.reports');
-    }
+           if(Auth::check()){
+if(Auth::user()->role == "admin" || Auth::user()->role == "employee"){
+ return view('backend.reports');}else{
+return view('/');
+}
+}else{
+return redirect('/');
+}
+}
+    
     public function AppointmentStatus(Request $request)
-    { 
-        $app = Appointment::find($request->app_id);
+    { $app = Appointment::find($request->app_id);
         $app->apt_status = $request->status;
         $app->save();
-        return redirect('appointments');
+        return redirect('appointments'); 
     }
 
     public function accounts()
     {
-        // Fetch all users from the database
+         if(Auth::check()){
+if(Auth::user()->role == "admin" || Auth::user()->role == "employee"){
+// Fetch all users from the database
         $users = User::all();
 
         // Pass the users to the Blade view
         return view('backend.accounts', compact('users'));
         // return view('backend.accounts');
+}else{
+return view('/');
+}
+}else{
+return redirect('/');
+}
+        
     }
 
     public function permissions()
     {
-        return view('backend.permissions');
+         if(Auth::check()){
+if(Auth::user()->role == "admin" || Auth::user()->role == "employee"){
+         return view('backend.permissions');
+
+}else{
+return view('/');
+}
+}else{
+return redirect('/');
+}
     }
 
     public function createaccount()
     {
-        return view('backend.create-account');
+         if(Auth::check()){
+if(Auth::user()->role == "admin" || Auth::user()->role == "employee"){
+         return view('backend.create-account');
+}else{
+return redirect('/');
+}
+}else{
+return redirect('/');
+}
     }
 
     public function systemConfiguration()
     {
-        return view('backend.system-configuration');
+         if(Auth::check()){
+if(Auth::user()->role == "admin" || Auth::user()->role == "employee"){
+  return view('backend.system-configuration');
+}else{
+return view('/');
+}
+}else{
+return redirect('/');
+}
+      
     }
 
     public function dataBackupRestore()
     {
-        return view('backend.data-backup-restore');
+         if(Auth::check()){
+if(Auth::user()->role == "admin" || Auth::user()->role == "employee"){
+  return view('backend.data-backup-restore');
+}else{
+return view('/');
+}
+}else{
+return redirect('/');
+}
+      
+       
     }
 
     public function userRegister(Request $req)
     {
+
         // Initialize a new User instance
         $user = new User();
 
@@ -148,11 +261,20 @@ class AdminController extends Controller
     // Edit Users Account
     public function edit($id)
     {
-        // Fetch the user by ID
+          if(Auth::check()){
+if(Auth::user()->role == "admin" || Auth::user()->role == "employee"){
+  // Fetch the user by ID
         $user = User::findOrFail($id);
 
         // Return the edit view with the user data
         return view('backend.crudPartials.editAccount', compact('user'));
+}else{
+return view('/');
+}
+}else{
+return redirect('/');
+}
+       
     }
 
     public function update(Request $req, $id)
@@ -205,11 +327,20 @@ class AdminController extends Controller
     // View User Profile
     public function show($id)
     {
-        // Fetch the user by ID
+          if(Auth::check()){
+if(Auth::user()->role == "admin" || Auth::user()->role == "employee"){
+ // Fetch the user by ID
         $user = User::findOrFail($id);
 
         // Pass user data to the view
-        return view('backend.crudPartials.profile', compact('user'));
+        return view('backend.crudPartials.profile', compact('user'));}
+        else{
+return view('/');
+}
+}else{
+return redirect('/');
+}
+       
     }
 
     // Method to delete a user profile
@@ -253,15 +384,27 @@ class AdminController extends Controller
 
       public function showInquiries()
     {
-        // Fetch all inquiries from the database
+            if(Auth::check()){
+if(Auth::user()->role == "admin" || Auth::user()->role == "employee"){
+ // Fetch the user by ID
+      // Fetch all inquiries from the database
         $inquiries = Inquire::all();
 
         // Pass the inquiries to the view
         return view('backend.crudPartials.inquiries.inquiries', compact('inquiries'));
     }
+        else{
+return view('/');
+}
+}else{
+return redirect('/');
+}
+        
+    }
 
     public function editInquiries($id)
     {
+
         $inquiry = Inquire::findOrFail($id);
         return view('backend.crudPartials.inquiries.editInquiries', compact('inquiry'));
     }
@@ -289,10 +432,19 @@ class AdminController extends Controller
     
     public function showSingleInquiry($id)
 {
-    // Find the inquiry by its ID or fail with a 404 error
+        if(Auth::check()){
+if(Auth::user()->role == "admin" || Auth::user()->role == "employee"){
+ // Find the inquiry by its ID or fail with a 404 error
     $inquiry = Inquire::findOrFail($id);
 
     // Return the single inquiry details view
-    return view('backend.crudPartials.inquiries.showInquiries', compact('inquiry'));
+    return view('backend.crudPartials.inquiries.showInquiries', compact('inquiry'));}
+        else{
+return view('/');
+}
+}else{
+return redirect('/');
+}
+   
 }
 }

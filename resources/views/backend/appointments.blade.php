@@ -27,9 +27,9 @@
                                 </tr>
                             </thead>
                             <tbody>
-
+  @foreach ($Appointments as $apt)
                                 <tr>
-                                    @foreach ($Appointments as $apt)
+                                  
                                         <th>{{ $apt->id }}</th>
 
                                         <td>{{ $Customer[0]->firstname }}</td>
@@ -67,9 +67,10 @@
                                                 <button type="submit" class="btn btn-danger btn-sm">Delete</button>
                                             </form>
                                         </td> --}}
-                                    @endforeach
+                                 
 
                                 </tr>
+                                   @endforeach
                             </tbody>
                         </table>
                     </div>

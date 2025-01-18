@@ -79,7 +79,7 @@
 
         @foreach ($Appointments as $apt)
             <tr>
-                <td>{{ $apt->id }}</td>
+                <td>{{ $loop->iteration }}</td>
                 <td>{{ $apt->firstname }}{{ $apt->lastname }}</td>
                 <td>{{ $apt->name }}</td>
                 <td>{{ $apt->date }}</td>

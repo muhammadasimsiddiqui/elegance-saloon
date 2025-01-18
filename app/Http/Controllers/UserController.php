@@ -6,6 +6,8 @@ use App\Models\User;
 use App\Models\Appointment;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class UserController extends Controller
 {
@@ -36,7 +38,7 @@ class UserController extends Controller
 $Appointments= DB::table('appointments')
     ->join('users', 'appointments.user_id', '=', 'users.id')
     ->join('services', 'appointments.service_id', '=', 'services.id')
-    ->where('appointments.user_id', 3)
+    ->where('appointments.user_id', Auth::id())
     ->get();
 
     // return $Appointments;
@@ -54,10 +56,39 @@ $Appointments= DB::table('appointments')
             // return $req-> all();
 Appointment::create($req-> all());
 // return "hogaya";
-            return view('frontend.contact');
+             return redirect('appointments'); ;
         }
 
 
+        public function signinform(Request $req)
+        {
+       
+        $email = $req->email;
+        $password = $req->password;
+
+
+
+        if (Auth::attempt(['email' => $email, 'password' => $password])) {
+           if(Auth::user()->role == "admin" || Auth::user()->role == "employee"){
+return redirect('dashboard');
+}else{
+return redirect('/');
+}
+        } else {
+            return 'try again';
+        }
+
+        }
+     public function userlogout(Request $req)
+
+        {
+                                Auth::logout();
+
+                              return redirect('/');
+
+        }
+
         
+
   
 }

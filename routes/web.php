@@ -97,3 +97,9 @@ Route::get('/view-services/{id}', [ServiceController::class, 'showServices'])->n
 Route::post('/bookAppointment', [UserController::class, 'bookAppointment']);
 
 
+// SignIN 
+Route::post('/signinform', [UserController::class, 'signinform']);
+Route::get('/userlogout', [UserController::class, 'userlogout']);
+Route::get('/logout', [AdminController::class, 'logout']);
+
+
