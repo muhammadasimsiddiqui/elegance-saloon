@@ -8,7 +8,7 @@
                 
                 <div class="navbar-nav align-items-center ms-auto">
 
-                    <div class="nav-item dropdown">
+                    {{-- <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                             <img class="rounded-circle me-lg-2" src="backend/img/user.jpg" alt="" style="width: 40px; height: 40px;">
                             <span class="d-none d-lg-inline-flex">John Doe</span>
@@ -18,6 +18,6 @@
                             <a href="#" class="dropdown-item">Settings</a>
                             <a href="{{ url('/logout') }}" class="dropdown-item">Log Out</a>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </nav>

@@ -73,12 +73,13 @@
                                                 <i class="fa fa-eye"></i>
                                             </a>
                                         </td>
-
+ @if (Auth::user()->role == "admin")
                                         <td class="align-content-center"> <a href="{{ url('/edit/' . $user->id) }}"
                                                 class="btn btn-warning btn-sm" title="Edit Profile">
                                                 <i class="fa fa-edit"></i>
                                             </a>
                                         </td>
+
                                         <td class="align-content-center">
                                             <form action="{{ route('user.destroy', $user->id) }}" method="POST" class="d-inline">
                                                 @csrf
@@ -86,6 +87,7 @@
                                                 <button type="submit" class="btn btn-sm btn-primary"  title="Remove: {{ $user->firstname }}&nbsp;{{ $user->lastname }}"><i class="fa fa-trash"></i></button>
                                             </form>
                                         </td>
+                                       @endif 
                                     </tr>
                                 @endforeach
                             </tbody>

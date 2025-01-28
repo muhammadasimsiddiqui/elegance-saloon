@@ -10,7 +10,7 @@
         </a>
         
         <!-- Admin user profile section -->
-        <div class="d-flex align-items-center ms-4 mb-4">
+        {{-- <div class="d-flex align-items-center ms-4 mb-4">
             <div class="position-relative">
                 <img
                     class="rounded-circle"
@@ -26,7 +26,7 @@
                 <h6 class="mb-0">Jhon Doe</h6>
                 <span>Admin</span>
             </div>
-        </div>
+        </div> --}}
         
         <!-- Navigation links -->
         <div class="navbar-nav w-100">

@@ -71,7 +71,7 @@
                             </table>
                         </div>
                     </div>
-
+ @if (Auth::user()->role == "admin")
                     <div class="mt-3">
                         <a href="{{ url('/edit/' . $user->id) }}" class="btn btn-warning btn-sm">
                             <i class="fa fa-edit"></i> Edit Profile
@@ -83,7 +83,7 @@
                             <button type="submit" class="btn btn-sm btn-primary m-2"><i class="fa fa-trash me-2"></i> Delete Profile</button>
                         </form>
                     </div>
-                    
+                    @endif
                 </div>
             </div>
         </div>
